@@ -1,0 +1,16 @@
+David Lavigueur, Alexandre Tessier, Karl Aoun
+
+Normes de programmation TP1P2
+
+Nomenclature: 
+-Une ligne d'espace entre chaque méthode 
+-Une ligne d'espace après une condition if 
+-Une ligne d'espace après une boucle for,while et do while
+-Variables commencent avec une miuscule puis des majuscules
+-Constantes toutes en majuscules
+-Chaque classe commence par une majusucle
+-espace entre les '=','+','-','*' et '/'
+-chaque ligne est identée de 4 espaces par rapport à la classe
+- Les commentaires ont étés effacés pour plus de propreté
+
+              
