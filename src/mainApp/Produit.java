@@ -1,4 +1,4 @@
-package TP1P2;
+package mainApp;
 
 public class Produit {
 	private String nom;

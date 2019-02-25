@@ -1,4 +1,4 @@
-package TP1P2;
+package mainApp;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -45,7 +45,7 @@ public class Main {
 			 * l'évaluation d'expressions arithmétiques et des sudokus.
 			 */
 
-			new PrincipalTP1P2();
+			new Cantine();
 
 		} else {
 			System.out.println("\nImpossible de tester le programme.");

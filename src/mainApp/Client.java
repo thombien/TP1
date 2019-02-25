@@ -1,4 +1,4 @@
-package TP1P2;
+package mainApp;
 
 import java.beans.PropertyDescriptor;
 import java.util.ArrayList;

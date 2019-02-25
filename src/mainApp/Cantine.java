@@ -1,12 +1,12 @@
-package TP1P2;
+package mainApp;
 
 import java.util.ArrayList;
 
 import outilsjava.OutilsConstantes;
 
-public class PrincipalTP1P2 implements OutilsConstantes{
+public class Cantine implements OutilsConstantes{
 
-	public PrincipalTP1P2() {
+	public Cantine() {
 		
 		String ligne;
 		
