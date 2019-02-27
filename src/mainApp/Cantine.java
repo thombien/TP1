@@ -30,7 +30,7 @@ public class Cantine implements OutilsConstantes{
 
 		
 		if( ligne.equals("Commandes :") ){
-			ajouterProduits();
+			ajouterCommandes();
 		}
 		
 
@@ -81,7 +81,7 @@ public class Cantine implements OutilsConstantes{
 		}
 	}
 	
-	private void ajouterProduits() {
+	private void ajouterCommandes() {
 		ligne = outilsjava.OutilsLecture.lireChaine("");
 		
 		while ( !ligne.equals("Fin") ) {
