@@ -6,45 +6,68 @@ import outilsjava.OutilsConstantes;
 
 public class Cantine implements OutilsConstantes{
 
+	String ligne;
+	
+
+	ArrayList<Client> listeClient;
+	
 	public Cantine() {
 		
-		String ligne;
+		listeClient = new ArrayList<>();
 		
 		System.out.println("\nBienvenue chez Barette !");
-
-		ArrayList<Client> listeClient = new ArrayList<>();
 		
 		ligne = outilsjava.OutilsLecture.lireChaine("");
 		
-		if (ligne.equals("Clients :")) {
-			ligne = outilsjava.OutilsLecture.lireChaine("");
+		if ( ligne.equals("Clients :") ) {
+			ajouterClient();
 		}
 		
-		while (!ligne.equals("Plats :")) {
+		
+		if ( ligne.equals("Plats :") ) {
+			ajotouterPlats();
+		}
+
+		
+		if( ligne.equals("Commandes :") ){
+			ajouterProduits();
+		}
+		
+
+		System.out.println("Factures:");
+		
+		for ( Client c : listeClient ) {
+			c.calculerPrix();
+		}
+	}
+	
+	private void ajouterClient() {
+		ligne = outilsjava.OutilsLecture.lireChaine("");
+		
+		while ( !ligne.equals("Plats :") ) {
 			
 			try {
 			Client ctemp = new Client(ligne);
 			
-			listeClient.add(ctemp);
+			listeClient.add( ctemp );
 			} catch (Exception e) {
 
 			}
 			
 			ligne = outilsjava.OutilsLecture.lireChaine("");
 		}
+	}
+	
+	private void ajotouterPlats() {
+		ligne = outilsjava.OutilsLecture.lireChaine("");
 		
-		if ( ligne.equals("Plats :")) {
-			ligne = outilsjava.OutilsLecture.lireChaine("");
-			
-
-		}
-		while (!ligne.equals("Commandes :")) {
+		while ( !ligne.equals("Commandes :") ) {
 			try {
 			String[] ligneProduti = ligne.split(" ");
 		
 
 
-			for (Client c : listeClient) {
+			for ( Client c : listeClient ) {
 				Produit produit = new Produit(ligneProduti[0],Double.parseDouble(ligneProduti[1]));
 				c.ajouterProduit(produit);
 			}
@@ -56,18 +79,19 @@ public class Cantine implements OutilsConstantes{
 			ligne = outilsjava.OutilsLecture.lireChaine("");
 			
 		}
-
-		
+	}
+	
+	private void ajouterProduits() {
 		ligne = outilsjava.OutilsLecture.lireChaine("");
 		
-		while (!ligne.equals("Fin")) {
+		while ( !ligne.equals("Fin") ) {
 			String[] ligneProduit = ligne.split(" ");
 			
-			for (Client c : listeClient) {
-				if(c.getNom().equals(ligneProduit[0])) {
-					for (Produit p : c.listeProduit) {
-						if(p.getNom().equals(ligneProduit[1])) {
-							p.setQte(Integer.parseInt(ligneProduit[2]));
+			for ( Client c : listeClient ) {
+				if( c.getNom().equals(ligneProduit[0]) ) {
+					for ( Produit p : c.listeProduit ) {
+						if( p.getNom().equals(ligneProduit[1]) ) {
+							p.setQte( Integer.parseInt(ligneProduit[2]) );
 						}
 					}
 				}
@@ -76,11 +100,13 @@ public class Cantine implements OutilsConstantes{
 			
 			ligne = outilsjava.OutilsLecture.lireChaine("");
 		}
+	}
+	
+	private void genererFacture() {
 		System.out.println("Factures:");
 		
-		for (Client c : listeClient) {
+		for ( Client c : listeClient ) {
 			c.calculerPrix();
 		}
-		
 	}
 }
