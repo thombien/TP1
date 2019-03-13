@@ -11,7 +11,12 @@ public class Cantine implements OutilsConstantes{
 
 	ArrayList<Client> listeClient;
 	
+	
 	public Cantine() {
+		
+	}
+	
+	public Cantine(String main) {
 		
 		listeClient = new ArrayList<>();
 		
