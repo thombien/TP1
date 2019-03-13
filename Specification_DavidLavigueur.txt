@@ -1,0 +1,23 @@
+Specification David Lavigueur Tp1 
+
+1: Méthode commandeValide()
+	- Cette méthode recoit le nom d'un client et un produit 
+	- Elle retourne un booléen qui indique false si il y a une erreur et true si le contraire
+	- Elle vérifie dans le ArrayList de Client que le client existe et dans le ArrayList produit de client que le produit envoyé existe bel et bien
+
+2: Méthode formatOk()
+	- Cette méthode recoit un String 
+	- Elle retourne un booléen qui indique false si il y a une erreur et true si le contraire
+	- Elle vérifie que le format de la ligne est correct
+
+3: Méthode prixOk()
+	- Cette méthode recoit un produit et vérifie que son prix est correct
+	- Elle retourne un booléen qui indique false si il y a une erreur et true si le contraire
+	- Elle vérifie que chaque porduit ne dépasse pas un certain prix ou n'est pas négatif
+	
+4: Méthode qteOk()
+	- Cette méthode recoit un int et vérifie que la qte est correct
+	- Elle retourne un booléen qui indique false si il y a une erreur et true si le contraire
+	- Elle vérifie que chaque qte ne dépasse pas un certain nombre, n'est pas négatif et n'a pas de virgule
+	
+	

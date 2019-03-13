@@ -1,0 +1,8 @@
+Une methode dans la classe cantine qui recoit aucun paramètre elle devra 
+elle devra calculer la somme des facutres, elle fera appel a la méthode de calculation des taxes et sauvegarder dans un tableau le montant avant taxe, le montant tvq, le montant tps et le total dans le client courant. 
+elle ne retourne rien 
+
+
+une methode qui calculeras les taxes  dans la classe cabtine elle recoit taux taxe TVQ un double , taux de taxe TPS un double, un montant a apliquer les taxes
+elle devra calaculer les taxes et les sauvegarder dans un tableau.
+elle retourne le montant tps , le montant tvq et le montant avec taxes dabs un tableau. 

@@ -2,6 +2,6 @@ Alexandre Tessier
 Karl Aoun
 David Lavigueur 
 
-David Créer méthode d'ajout de client 
-Karl Créer méthode ajout de produit
-Alexandre Créer méthode ajout commandese et création de méthode de facture.
+David gerer les commandes incorects 
+Karl sortie de la facture terminal + fichier.
+Alexandre Gerer calculs de la facture
