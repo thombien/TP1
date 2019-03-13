@@ -46,7 +46,16 @@ public class TestsCalculs {
 		double[] tabFacture = Cantine.calculTaxes(0.10, 0.05, 27.35);
 		assertEquals(27.35,tabFacture[2],0);
 	}
-	
+    @Test public void testCalculFactureTPS2() {
+		double[] tabFacture = Cantine.calculTaxes(0.10, 0.05, 27.35);
+		assertEquals(2.735,tabFacture[0],0);
+    	
+    }
+    @Test public void testCalculFactureTVQ2() {
+		double[] tabFacture = Cantine.calculTaxes(0.10, 0.05, 27.35);
+		assertEquals(1.3675,tabFacture[1],0);
+    	
+    }
 	@Test
 	public void testTotal() {	
 		Cantine.calculTotal();
