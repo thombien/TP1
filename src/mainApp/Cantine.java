@@ -90,7 +90,7 @@ public class Cantine implements OutilsConstantes{
 	}
 
 	public static void calculTotal() {
-		d
+		
 		
 	}
 }
