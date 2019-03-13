@@ -11,9 +11,17 @@ import org.junit.Test;
 
 
 public class TestsCalculs {
-
+	
+	static Cantine cantineTest;
+	static Client client1;
+	static Client client2;
+	static Client client3;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		client1 = new Client("Jean");
+		client2 = new Client("Martin");
+		client3 = new Client("Joe");
+		
 	}
 
 
@@ -50,6 +58,7 @@ public class TestsCalculs {
 		
 		assertEquals(27.35,tabFacture[2],0);
     }
+	
 	@Test 
 	public void testCalculFactureMontant3() {
 		double[] tabFacture = Cantine.calculTaxes(0.10, 0.05, 6666.00);
@@ -59,6 +68,17 @@ public class TestsCalculs {
 		assertEquals(333.3,tabFacture[1],0);
 		
 		assertEquals(6666.00,tabFacture[2],0);
+    }
+	
+	@Test 
+	public void testCalculFactureMontant4() {
+		double[] tabFacture = Cantine.calculTaxes(0.10, 0.05, 0.0150);
+		
+		assertEquals(0.0015,tabFacture[0],0);
+
+		assertEquals(0.00075,tabFacture[1],0);
+		
+		assertEquals(0.0150,tabFacture[2],0);
     }
 	
 	@Test
