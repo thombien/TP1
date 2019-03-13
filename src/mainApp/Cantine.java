@@ -5,8 +5,13 @@ import java.util.ArrayList;
 import outilsjava.OutilsConstantes;
 
 public class Cantine implements OutilsConstantes{
-
+	
 	public Cantine() {
+		
+		
+	}
+
+	public Cantine( String f) {
 		
 		String ligne;
 		
