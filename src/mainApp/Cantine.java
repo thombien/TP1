@@ -83,4 +83,14 @@ public class Cantine implements OutilsConstantes{
 		}
 		
 	}
+
+	public static double[] calculTaxes(double d, double e, double f) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static void calculTotal() {
+		d
+		
+	}
 }
