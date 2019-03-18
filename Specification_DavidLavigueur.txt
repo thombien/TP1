@@ -3,7 +3,7 @@ Specification David Lavigueur Tp1
 1: Méthode commandeValide()
 	- Cette méthode recoit le nom d'un client et un produit 
 	- Elle retourne un booléen qui indique false si il y a une erreur et true si le contraire
-	- Elle vérifie dans le ArrayList de Client que le client existe et dans le ArrayList produit de client que le produit envoyé existe bel et bien
+	- Elle vérifie dans le ArrayList de Client que le client existe et dans le ArrayList produit que le produit envoyé existe bel et bien
 
 2: Méthode formatClientOk()
 	- Cette méthode recoit un String 
