@@ -32,6 +32,7 @@ public class TestCantineParAlex {
 
 	@Before
 	public void setUp() throws Exception {
+		test = new Cantine();
 	}
 
 	@After
@@ -42,10 +43,10 @@ public class TestCantineParAlex {
 	public void testformatClientValide() {
 		
 		String client = "Jean";
-		assertEquals(true, formatClientOk(client));
+		assertEquals(true, test.formatClientOk(client));
 		
 		client = "Jean-Paul";
-		assertEquals(true, formatClientOk(client));
+		assertEquals(true, test.formatClientOk(client));
 		
 
 	}
@@ -54,20 +55,20 @@ public class TestCantineParAlex {
 	public void testformatClientInValide() {
 		
 		String client = "Jean Paul";
-		assertEquals(false, formatClientOk(client));
+		assertEquals(false, test.formatClientOk(client));
 		
 		
 		client = "Jean 1";
-		assertEquals(false, formatClientOk(client));
+		assertEquals(false, test.formatClientOk(client));
 		
 		client = "Jean- 1 2";
-		assertEquals(false, formatClientOk(client));
+		assertEquals(false, test.formatClientOk(client));
 		
 		client = "pier 1 2";
-		assertEquals(false, formatClientOk(client));
+		assertEquals(false, test.formatClientOk(client));
 
 		client = "";
-		assertEquals(false, formatClientOk(client));
+		assertEquals(false, test.formatClientOk(client));
 	}
 	
 	
@@ -75,16 +76,16 @@ public class TestCantineParAlex {
 	public void testformatPlatValide() {
 		
 		String plat = "Frite 1";
-		assertEquals(true, formatPlatOk(plat));
+		assertEquals(true, test.formatPlatOk(plat));
 		
 		plat = "JAMBON 56.65";
-		assertEquals(true, formatPlatOk(plat));
+		assertEquals(true, test.formatPlatOk(plat));
 		
 		plat = "Poitrine-de-Dinde 57.45";
-		assertEquals(true, formatPlatOk(plat));
+		assertEquals(true, test.formatPlatOk(plat));
 		
 		plat = "PizZA 2231";
-		assertEquals(true, formatPlatOk(plat));
+		assertEquals(true, test.formatPlatOk(plat));
 		
 		
 	}
@@ -93,26 +94,26 @@ public class TestCantineParAlex {
 	public void testformatPlatInValide() {
 		
 		String plat = "Frite patate 2.56";
-		assertEquals(false, formatPlatOk(plat));
+		assertEquals(false, test.formatPlatOk(plat));
 		
 		plat = "JAMBON 46,34";
-		assertEquals(false, formatPlatOk(plat));
+		assertEquals(false, test.formatPlatOk(plat));
 		
 		plat = "Poitrine-de-Dinde";
-		assertEquals(false, formatPlatOk(plat));
+		assertEquals(false, test.formatPlatOk(plat));
 		
 		
 		plat = "Poitrine-de-Dinde 0";
-		assertEquals(false, formatPlatOk(plat));
+		assertEquals(false, test.formatPlatOk(plat));
 		
 		plat = "Poitrine-de-Dinde -560";
-		assertEquals(false, formatPlatOk(plat));
+		assertEquals(false, test.formatPlatOk(plat));
 		
 		plat = "2231";
-		assertEquals(false, formatPlatOk(plat));
+		assertEquals(false, test.formatPlatOk(plat));
 		
 		plat = "";
-		assertEquals(false, formatPlatOk(plat));
+		assertEquals(false, test.formatPlatOk(plat));
 		
 		
 	}
@@ -121,16 +122,16 @@ public class TestCantineParAlex {
 	public void testformatCommandeValide() {
 		
 		String commande = "Jean Patate 5";
-		assertEquals(true, formatCommandeOk(commande));
+		assertEquals(true, test.formatCommandeOk(commande));
 		
 		commande = "Jean-pierre pIZZa 5";
-		assertEquals(true, formatCommandeOk(commande));
+		assertEquals(true, test.formatCommandeOk(commande));
 		
 		commande = "Jean Poitrine-de-din_de 200";
-		assertEquals(true, formatCommandeOk(commande));
+		assertEquals(true, test.formatCommandeOk(commande));
 		
 		commande = "ROG_ER Pat-ate 1";
-		assertEquals(true, formatCommandeOk(commande));
+		assertEquals(true, test.formatCommandeOk(commande));
 		
 	}
 	
@@ -139,39 +140,36 @@ public class TestCantineParAlex {
 	public void testformatCommandeInValide() {
 		
 		String commande = "Jean_Patate 5";
-		assertEquals(false, formatCommandeOk(commande));
+		assertEquals(false, test.formatCommandeOk(commande));
 		
-		String commande = "Jean Patate 5,2";
-		assertEquals(false, formatCommandeOk(commande));		
+		 commande = "Jean Patate 5,2";
+		assertEquals(false, test.formatCommandeOk(commande));		
 		
-		String commande = "Jean Patate -5,2";
-		assertEquals(false, formatCommandeOk(commande));
+		 commande = "Jean Patate -5,2";
+		assertEquals(false, test.formatCommandeOk(commande));
 		
 		commande = "Jean-pierre pIZZa -5";
-		assertEquals(false, formatCommandeOk(commande));
+		assertEquals(false, test.formatCommandeOk(commande));
 		
 		commande = "Jean-pierre 5 pizza";
-		assertEquals(false, formatCommandeOk(commande));
-			
-		commande = "Jean Poitrine-de-din_de 200";
-		assertEquals(false, formatCommandeOk(commande));
+		assertEquals(false, test.formatCommandeOk(commande));
 		
 		commande = "ROG_ER Pat te 1";
-		assertEquals(false, formatCommandeOk(commande));
+		assertEquals(false, test.formatCommandeOk(commande));
 		
 		commande = "4545";
-		assertEquals(false, formatCommandeOk(commande));
+		assertEquals(false, test.formatCommandeOk(commande));
 		
 		commande = "0";
-		assertEquals(false, formatCommandeOk(commande));
+		assertEquals(false, test.formatCommandeOk(commande));
 		commande = "";
-		assertEquals(false, formatCommandeOk(commande));
+		assertEquals(false, test.formatCommandeOk(commande));
 		
 	}
 	
 	
 	@Test
-	public void testformatCommandeValide() {
+	public void testformatCommandeValide3() {
 		test = new Cantine();
 		
 		Client ctemp = new Client("Paul");
@@ -196,9 +194,7 @@ public class TestCantineParAlex {
 	
 	
 	@Test
-	public void testformatCommandeValide() {
-		test = new Cantine();
-		
+	public void testformatCommandeValide2() {
 		Client ctemp = new Client("Paul");
 		test.listeClient.add(ctemp);
 		ctemp = new Client("Pierre");

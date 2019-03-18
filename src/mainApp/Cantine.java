@@ -1,6 +1,7 @@
 package mainApp;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import outilsjava.OutilsConstantes;
 
@@ -13,7 +14,7 @@ public class Cantine implements OutilsConstantes{
 	
 	
 	public Cantine() {
-		
+		listeClient = new ArrayList<>();
 	}
 	
 	public Cantine(String main) {
@@ -107,6 +108,103 @@ public class Cantine implements OutilsConstantes{
 		}
 	}
 	
+	public boolean commandeValide( String nomClient,String nomProduit) {
+		
+		boolean commandeVal = false;
+		
+		for (Client client : listeClient) {
+			
+			if(nomClient == client.getNom()) {
+				
+				for (Produit produit : client.listeProduit) {
+					if(nomProduit == produit.getNom()) {
+						
+						commandeVal = true;
+					}
+				}
+			}
+		}
+		return commandeVal;
+		
+	}
+	
+	public boolean formatClientOk(String client) {
+		
+		boolean valide = true;
+		if(client == "") {
+			valide = false;
+
+		}else {
+			char[] nomTab =  client.toCharArray();
+			
+			for (char c : nomTab) {
+				
+				if(c == ' ') {
+					valide = false;
+				}else {
+					if(Character.isDigit(c)) {
+						valide = false;
+					}
+				}
+			}
+		}
+		
+		return valide;
+	}
+	
+	public boolean formatPlatOk(String plat) {
+		
+		boolean valide = true;
+		
+		if(plat == "") {
+			
+			valide = false;
+		}else {
+			String[] tabPlat = plat.split(" "); 
+			if(tabPlat.length != 2) {
+				valide = false;
+			}else {
+				try {
+				
+				double prix= Double.parseDouble(tabPlat[1]);
+				
+				if(prix <= 0) {
+					valide = false;
+				}
+				}catch (Exception ex){
+					valide = false;
+				}
+			}
+		}
+		
+		return valide;
+	}
+	public boolean formatCommandeOk(String commande) {
+		
+		boolean valide = true;
+		
+		if(commande == "") {
+			valide = false;
+
+		}else {
+			String[] comTab =  commande.split(" ");
+			
+			if(comTab.length != 3) {
+				valide = false;
+			}else {
+				
+				try {
+					int qte = Integer.parseInt(comTab[2]);
+					if(qte <= 0 ) {
+						valide = false;
+					}
+				}catch(Exception exc) {
+					valide = false;
+				}
+			}
+		}
+		return valide;
+	}
 	private void genererFacture() {
 		System.out.println("Factures:");
 		
