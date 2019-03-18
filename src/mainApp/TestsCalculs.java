@@ -70,7 +70,7 @@ public class TestsCalculs {
 
 		assertEquals(2.50,tabFacture[1],0);
 
-		assertEquals(50.00,tabFacture[2],0);
+		assertEquals(57.50,tabFacture[2],0);
 	}
 	
 	@Test 
@@ -89,33 +89,33 @@ public class TestsCalculs {
 		double[] tabFacture = cantineTest.calculTaxes(0.10, 0.05, 27.35);
 		
 
-		assertEquals(2.735,tabFacture[0],0);
+		assertEquals(2.73,tabFacture[0],0);
 
-		assertEquals(1.3675,tabFacture[1],0);
+		assertEquals(1.36,tabFacture[1],0);
 		
-		assertEquals(27.35,tabFacture[2],0);
+		assertEquals(31.44,tabFacture[2],0);
     }
 	
 	@Test 
 	public void testCalculFactureMontant3() {
 		double[] tabFacture = cantineTest.calculTaxes(0.10, 0.05, 6666.00);
 		
-		assertEquals(666.6,tabFacture[0],0);
+		assertEquals(666.60,tabFacture[0],0);
 
-		assertEquals(333.3,tabFacture[1],0);
+		assertEquals(333.30,tabFacture[1],0);
 		
-		assertEquals(6666.00,tabFacture[2],0);
+		assertEquals(7665.90,tabFacture[2],0);
     }
 	
 	@Test 
 	public void testCalculFactureMontant4() {
-		double[] tabFacture = cantineTest.calculTaxes(0.10, 0.05, 0.0150);
+		double[] tabFacture = cantineTest.calculTaxes(0.10, 0.05, 0.95);
 		
-		assertEquals(0.0015,tabFacture[0],0);
+		assertEquals(0.10,tabFacture[0],0);
 
-		assertEquals(0.00075,tabFacture[1],0);
+		assertEquals(0.05,tabFacture[1],0);
 		
-		assertEquals(0.0150,tabFacture[2],0);
+		assertEquals(1.10,tabFacture[2],0);
     }
 	
 	@Test
