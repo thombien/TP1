@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -12,12 +13,22 @@ import org.junit.Test;
 
 public class TestsCalculs {
 	
-	static Cantine cantineTest;
-	static Client client1;
-	static Client client2;
-	static Client client3;
+	 Cantine cantineTest;
+	 Client client1;
+	 Client client2;
+	 Client client3;
+	 Produit produit1;
+
+
+	 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+
+	}
+	
+	@Before
+	public void setUp()throws Exception{
+		
 		cantineTest= new Cantine();
 		client1 = new Client("Jean");
 		cantineTest.listeClient.add(client1);
@@ -25,6 +36,29 @@ public class TestsCalculs {
 		cantineTest.listeClient.add(client2);
 		client3 = new Client("Joe");
 		cantineTest.listeClient.add(client3);
+		
+		for ( Client c : cantineTest.listeClient ) {
+			  produit1 = new Produit("Poutine",10.5);
+			  c.ajouterProduit(produit1);
+		}
+
+		for ( Client c : cantineTest.listeClient ) {
+			  produit1 = new Produit("Frite",2.5);
+			  c.ajouterProduit(produit1);
+		}
+		for ( Client c : cantineTest.listeClient ) {
+		  produit1 = new Produit("Repas_Poulet", 15.75);
+		  c.ajouterProduit(produit1);
+		}
+		cantineTest.listeClient.get(0).listeProduit.get(0).setQte(3);
+		cantineTest.listeClient.get(1).listeProduit.get(1).setQte(2);
+		cantineTest.listeClient.get(2).listeProduit.get(2).setQte(1);
+		cantineTest.listeClient.get(0).listeProduit.get(1).setQte(1);
+		cantineTest.listeClient.get(1).listeProduit.get(2).setQte(1);
+		cantineTest.listeClient.get(2).listeProduit.get(0).setQte(3);
+		cantineTest.listeClient.get(0).listeProduit.get(2).setQte(8);
+		cantineTest.listeClient.get(1).listeProduit.get(0).setQte(7);
+		cantineTest.listeClient.get(2).listeProduit.get(1).setQte(9);
 	}
 
 
