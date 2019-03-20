@@ -2,7 +2,9 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -12,6 +14,8 @@ import org.junit.Test;
 import mainApp.Cantine;
 import mainApp.Client;
 import mainApp.Produit;
+import outilsjava.OutilsFichier;
+import outilsjava.OutilsLecture;
 
 
 
@@ -134,5 +138,72 @@ public class TestsCalculs {
 		assertEquals(35.08, cantineTest.listeClient.get(0).totalAvecTaxes,0);
 		assertEquals(58.08, cantineTest.listeClient.get(1).totalAvecTaxes,0);
 		assertEquals(81.08, cantineTest.listeClient.get(2).totalAvecTaxes,0);
+	}
+	
+	
+	@Test
+	public void testAjoutClient() {
+		BufferedReader fic =
+				new BufferedReader(new InputStreamReader(System.in));
+		
+		
+		fic = OutilsFichier.ouvrirFicTexteLecture("testAjoutClient");
+		
+		OutilsLecture.fic = fic;
+		OutilsLecture.type = 'F';
+		
+		
+		cantineTest.ajouterClient();
+
+	}
+	
+	@Test
+	public void testAjoutPlat() {
+		BufferedReader fic =
+				new BufferedReader(new InputStreamReader(System.in));
+		
+		
+		fic = OutilsFichier.ouvrirFicTexteLecture("testAjoutPlat");
+		
+		OutilsLecture.fic = fic;
+		OutilsLecture.type = 'F';
+		
+		
+		cantineTest.ajotouterPlats();
+
+	}
+	
+	
+	@Test
+	public void testAjoutCommande() {
+		
+		// création des plats pour le test 
+		BufferedReader fic =
+				new BufferedReader(new InputStreamReader(System.in));
+		
+		
+		fic = OutilsFichier.ouvrirFicTexteLecture("testAjoutPlat");
+		
+		OutilsLecture.fic = fic;
+		OutilsLecture.type = 'F';
+		
+		
+		cantineTest.ajotouterPlats();
+		
+		
+		// le test 
+		fic =
+				new BufferedReader(new InputStreamReader(System.in));
+		
+		
+		fic = OutilsFichier.ouvrirFicTexteLecture("testAjoutCommande");
+		
+		OutilsLecture.fic = fic;
+		OutilsLecture.type = 'F';
+		
+		
+		cantineTest.ajouterCommandes();
+
+
 	}
 }

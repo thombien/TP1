@@ -10,7 +10,7 @@ public class Cantine implements OutilsConstantes{
 	final double TVQ = 0.10;
 	final double TPS = 0.05;
 	
-	String ligne;
+	public String ligne;
 	
 	public ArrayList<Client> listeClient;
 		
@@ -46,7 +46,7 @@ public class Cantine implements OutilsConstantes{
 
 	}
 	
-	private void ajouterClient() {
+	public void ajouterClient() {
 		ligne = outilsjava.OutilsLecture.lireChaine("");
 		
 		while ( !ligne.equals("Plats :") ) {
@@ -63,7 +63,7 @@ public class Cantine implements OutilsConstantes{
 		}
 	}
 	
-	private void ajotouterPlats() {
+	public void ajotouterPlats() {
 		ligne = outilsjava.OutilsLecture.lireChaine("");
 		
 		while ( !ligne.equals("Commandes :") ) {
@@ -86,7 +86,7 @@ public class Cantine implements OutilsConstantes{
 		}
 	}
 	
-	private void ajouterCommandes() {
+	public void ajouterCommandes() {
 		ligne = outilsjava.OutilsLecture.lireChaine("");
 		
 		while ( !ligne.equals("Fin") ) {
