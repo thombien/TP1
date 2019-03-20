@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Client {
 	private String nom;
 	ArrayList<Produit> listeProduit;
+	public double totalAvecTaxes;
 
 	public Client() {
 
@@ -21,7 +22,7 @@ public class Client {
 		this.listeProduit.add(produit);
 	}
 
-	public void calculerPrix() {
+	public double calculerPrixSansTaxe() {
 		
 		double total = 0;
 		
@@ -33,7 +34,7 @@ public class Client {
 			
 			total += produits[i].getPrix()*produits[i].getQte();
 		}
-		System.out.println(this.nom+" "+total+"$ ");
+		return total;
 	}
 	public String getNom(){
 		

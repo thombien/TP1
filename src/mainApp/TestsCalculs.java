@@ -37,28 +37,6 @@ public class TestsCalculs {
 		client3 = new Client("Joe");
 		cantineTest.listeClient.add(client3);
 		
-		for ( Client c : cantineTest.listeClient ) {
-			  produit1 = new Produit("Poutine",10.5);
-			  c.ajouterProduit(produit1);
-		}
-
-		for ( Client c : cantineTest.listeClient ) {
-			  produit1 = new Produit("Frite",2.5);
-			  c.ajouterProduit(produit1);
-		}
-		for ( Client c : cantineTest.listeClient ) {
-		  produit1 = new Produit("Repas_Poulet", 15.75);
-		  c.ajouterProduit(produit1);
-		}
-		cantineTest.listeClient.get(0).listeProduit.get(0).setQte(3);
-		cantineTest.listeClient.get(1).listeProduit.get(1).setQte(2);
-		cantineTest.listeClient.get(2).listeProduit.get(2).setQte(1);
-		cantineTest.listeClient.get(0).listeProduit.get(1).setQte(1);
-		cantineTest.listeClient.get(1).listeProduit.get(2).setQte(1);
-		cantineTest.listeClient.get(2).listeProduit.get(0).setQte(3);
-		cantineTest.listeClient.get(0).listeProduit.get(2).setQte(8);
-		cantineTest.listeClient.get(1).listeProduit.get(0).setQte(7);
-		cantineTest.listeClient.get(2).listeProduit.get(1).setQte(9);
 	}
 
 
@@ -70,7 +48,7 @@ public class TestsCalculs {
 
 		assertEquals(2.50,tabFacture[1],0);
 
-		assertEquals(50.00,tabFacture[2],0);
+		assertEquals(57.50,tabFacture[2],0);
 	}
 	
 	@Test 
@@ -89,37 +67,68 @@ public class TestsCalculs {
 		double[] tabFacture = cantineTest.calculTaxes(0.10, 0.05, 27.35);
 		
 
-		assertEquals(2.735,tabFacture[0],0);
+		assertEquals(2.74,tabFacture[0],0);
 
-		assertEquals(1.3675,tabFacture[1],0);
+		assertEquals(1.37,tabFacture[1],0);
 		
-		assertEquals(27.35,tabFacture[2],0);
+		assertEquals(31.46,tabFacture[2],0);
     }
 	
 	@Test 
 	public void testCalculFactureMontant3() {
 		double[] tabFacture = cantineTest.calculTaxes(0.10, 0.05, 6666.00);
 		
-		assertEquals(666.6,tabFacture[0],0);
+		assertEquals(666.60,tabFacture[0],0);
 
-		assertEquals(333.3,tabFacture[1],0);
+		assertEquals(333.30,tabFacture[1],0);
 		
-		assertEquals(6666.00,tabFacture[2],0);
+		assertEquals(7665.90,tabFacture[2],0);
     }
 	
 	@Test 
 	public void testCalculFactureMontant4() {
-		double[] tabFacture = cantineTest.calculTaxes(0.10, 0.05, 0.0150);
+		double[] tabFacture = cantineTest.calculTaxes(0.10, 0.05, 0.95);
 		
-		assertEquals(0.0015,tabFacture[0],0);
+		assertEquals(0.10,tabFacture[0],0);
 
-		assertEquals(0.00075,tabFacture[1],0);
+		assertEquals(0.05,tabFacture[1],0);
 		
-		assertEquals(0.0150,tabFacture[2],0);
+		assertEquals(1.10,tabFacture[2],0);
     }
+		
 	
 	@Test
-	public void testTotal() {	
+	public void testTotalFonctionnel() {	
+		
+		for ( Client c : cantineTest.listeClient ) {
+			  produit1 = new Produit("Poutine",10.50);
+			  c.ajouterProduit(produit1);
+		}
+
+		for ( Client c : cantineTest.listeClient ) {
+			  produit1 = new Produit("Frite",2.50);
+			  c.ajouterProduit(produit1);
+		}
+		for ( Client c : cantineTest.listeClient ) {
+		  produit1 = new Produit("Repas_Poulet", 15.00);
+		  c.ajouterProduit(produit1);
+		}
+		cantineTest.listeClient.get(0).listeProduit.get(0).setQte(1);
+		cantineTest.listeClient.get(1).listeProduit.get(0).setQte(1);
+		cantineTest.listeClient.get(2).listeProduit.get(0).setQte(1);
+		cantineTest.listeClient.get(0).listeProduit.get(1).setQte(2);
+		cantineTest.listeClient.get(1).listeProduit.get(1).setQte(4);
+		cantineTest.listeClient.get(2).listeProduit.get(1).setQte(6);
+		cantineTest.listeClient.get(0).listeProduit.get(2).setQte(1);
+		cantineTest.listeClient.get(1).listeProduit.get(2).setQte(2);
+		cantineTest.listeClient.get(2).listeProduit.get(2).setQte(3);
+		
+		
+		
 		cantineTest.calculTotal();
+		
+		assertEquals(35.08, cantineTest.listeClient.get(0).totalAvecTaxes,0);
+		assertEquals(58.08, cantineTest.listeClient.get(1).totalAvecTaxes,0);
+		assertEquals(81.08, cantineTest.listeClient.get(2).totalAvecTaxes,0);
 	}
 }
