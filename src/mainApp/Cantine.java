@@ -6,14 +6,15 @@ import outilsjava.OutilsConstantes;
 
 public class Cantine implements OutilsConstantes{
 
+	final double TVQ = 0.10;
+	final double TPS = 0.05;
+	
 	String ligne;
 	
-
 	ArrayList<Client> listeClient;
-	
-	
-	public Cantine() {
 		
+	public Cantine() {
+		listeClient = new ArrayList<>();
 	}
 	
 	public Cantine(String main) {
@@ -41,9 +42,7 @@ public class Cantine implements OutilsConstantes{
 
 		System.out.println("Factures:");
 		
-		for ( Client c : listeClient ) {
-			c.calculerPrix();
-		}
+
 	}
 	
 	private void ajouterClient() {
@@ -108,10 +107,36 @@ public class Cantine implements OutilsConstantes{
 	}
 	
 	private void genererFacture() {
-		System.out.println("Factures:");
-		
-		for ( Client c : listeClient ) {
-			c.calculerPrix();
-		}
+		String facture =  "Facture \n";
+
 	}
+	
+	public double[] calculTaxes(double tvq, double tps, double montant) {
+		
+		double[] tableauTaxes = new double[3];
+		tableauTaxes[0] = Math.round(tvq * montant*100)/100.00;
+		tableauTaxes[1] = Math.round(tps * montant*100)/100.00;
+		tableauTaxes[2] = Math.round((montant + tableauTaxes[0] + tableauTaxes[1])*100)/100.00;
+		
+		
+		return tableauTaxes;
+		
+	}
+	
+	
+	public void calculTotal() {
+		
+		double  total;
+		double[] tableauMontants;
+		for ( Client c : listeClient ) {
+		
+			total = c.calculerPrixSansTaxe();
+			tableauMontants = calculTaxes(TVQ, TPS, total);
+			c.totalAvecTaxes = tableauMontants[2];
+			
+		}
+
+		
+	}
+
 }
