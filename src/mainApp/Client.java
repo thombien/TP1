@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Client {
 	private String nom;
-	ArrayList<Produit> listeProduit;
+	public ArrayList<Produit> listeProduit;
 	public double totalAvecTaxes;
 
 	public Client() {

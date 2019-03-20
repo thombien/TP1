@@ -1,4 +1,4 @@
-package mainApp;
+package test;
 
 import static org.junit.Assert.*;
 
@@ -12,6 +12,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import mainApp.Cantine;
+import mainApp.Client;
+import mainApp.Produit;
 import outilsjava.OutilsFichier;
 import outilsjava.OutilsLecture;
 
