@@ -45,7 +45,7 @@ public class Main {
 			 * l'évaluation d'expressions arithmétiques et des sudokus.
 			 */
 
-			new Cantine();
+			new Cantine("debut");
 
 		} else {
 			System.out.println("\nImpossible de tester le programme.");

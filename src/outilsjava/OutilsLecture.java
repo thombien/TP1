@@ -114,7 +114,7 @@ public class OutilsLecture implements OutilsConstantes {
 				
 				if ( type == LECTURE_FICHIER ) {
 					// Si lecture du fichier texte, on l'affiche sur la console.
-					System.out.println(chaine);
+					//System.out.println(chaine);
 				}
 
 				lgChaine = chaine.length();
