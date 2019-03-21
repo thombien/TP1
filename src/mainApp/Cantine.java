@@ -10,7 +10,11 @@ import java.util.Iterator;
 import outilsjava.OutilsConstantes;
 
 public class Cantine implements OutilsConstantes {
-
+	
+	final String FORMAT_COMMANDE_INVALIDE = " : format de la commande invalide\r\n";
+	final String FORMAT_CLIENT_INVALIDE = ": format du client invalide\r\n";
+	final String FORMAT_PLAT_INVALIDE = ": format du plat invalide\r\n";
+	
 	final double TVQ = 0.10;
 	final double TPS = 0.05;
 
@@ -145,24 +149,9 @@ public class Cantine implements OutilsConstantes {
 	public boolean formatClientOk(String client) {
 
 		boolean valide = true;
-		if (client == "") {
+		if (client == "" || client.matches(".*\\d.*") || client.contains(" ")) {
 			valide = false;
-
-		} else {
-			char[] nomTab = client.toCharArray();
-
-			for (char c : nomTab) {
-
-				if (c == ' ') {
-					valide = false;
-					sortie += "Erreur " + client + " : format du client invalide\n";
-				} else {
-					if (Character.isDigit(c)) {
-						valide = false;
-						sortie += "Erreur " + client + " : format du client invalide\n";
-					}
-				}
-			}
+			sortie += "Erreur " + client + FORMAT_CLIENT_INVALIDE;
 		}
 
 		return valide;
@@ -176,12 +165,12 @@ public class Cantine implements OutilsConstantes {
 
 			valide = false;
 
-			sortie += "Erreur " + plat + " : format du plat invalide\n";
+			sortie += "Erreur " + plat + FORMAT_PLAT_INVALIDE;
 		} else {
 			String[] tabPlat = plat.split(" ");
 			if (tabPlat.length != 2) {
 				valide = false;
-				sortie += "Erreur " + plat + " : format du plat invalide\n";
+				sortie += "Erreur " + plat + FORMAT_PLAT_INVALIDE;
 			} else {
 				try {
 
@@ -189,11 +178,11 @@ public class Cantine implements OutilsConstantes {
 
 					if (prix <= 0) {
 						valide = false;
-						sortie += "Erreur " + plat + " : format du plat invalide\n";
+						sortie += "Erreur " + plat + FORMAT_PLAT_INVALIDE;
 					}
 				} catch (Exception ex) {
 					valide = false;
-					sortie += "Erreur " + plat + " : format du plat invalide\n";
+					sortie += "Erreur " + plat + FORMAT_PLAT_INVALIDE;
 				}
 			}
 		}
@@ -207,25 +196,25 @@ public class Cantine implements OutilsConstantes {
 
 		if (commande == "") {
 			valide = false;
-			sortie += "Erreur " + commande + " : format de la commande invalide\n";
+			sortie += "Erreur " + commande + FORMAT_COMMANDE_INVALIDE;
 
 		} else {
 			String[] comTab = commande.split(" ");
 
 			if (comTab.length != 3) {
 				valide = false;
-				sortie += "Erreur " + commande + " : format de la commande invalide\n";
+				sortie += "Erreur " + commande + FORMAT_COMMANDE_INVALIDE;
 			} else {
 
 				try {
 					int qte = Integer.parseInt(comTab[2]);
 					if (qte <= 0) {
 						valide = false;
-						sortie += "Erreur " + commande + " : format de la commande invalide\n";
+						sortie += "Erreur " + commande + FORMAT_COMMANDE_INVALIDE;
 					}
 				} catch (Exception exc) {
 					valide = false;
-					sortie += "Erreur " + commande + " : format de la commande invalide\n";
+					sortie += "Erreur " + commande + FORMAT_COMMANDE_INVALIDE;
 				}
 			}
 		}
@@ -270,11 +259,11 @@ public class Cantine implements OutilsConstantes {
 
 	public void calculTotal() {
 
-		double total;
+
 		double[] tableauMontants;
 		for (Client c : listeClient) {
 
-			total = c.calculerPrixSansTaxe();
+			double total = c.calculerPrixSansTaxe();
 			tableauMontants = calculTaxes(TVQ, TPS, total);
 			c.totalAvecTaxes = tableauMontants[2];
 
