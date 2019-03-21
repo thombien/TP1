@@ -154,11 +154,14 @@ public class TestsCalculs {
 		
 		
 		cantineTest.ajouterClient();
+		
+		assertEquals("jean", cantineTest.listeClient.get(3).getNom());
+		assertEquals("patate", cantineTest.listeClient.get(5).getNom());
 
 	}
 	
 	@Test
-	public void testAjoutPlat() {
+	public void testAjoutPlatValide () {
 		BufferedReader fic =
 				new BufferedReader(new InputStreamReader(System.in));
 		
@@ -170,6 +173,13 @@ public class TestsCalculs {
 		
 		
 		cantineTest.ajotouterPlats();
+		
+		assertEquals("Poutine", cantineTest.listeClient.get(0).listeProduit.get(0).getNom());
+		
+		assertEquals("Poutine", cantineTest.listeClient.get(2).listeProduit.get(0).getNom());
+		assertEquals("Glasse", cantineTest.listeClient.get(2).listeProduit.get(2).getNom());
+		assertEquals(20.50, cantineTest.listeClient.get(2).listeProduit.get(2).getPrix(),0);
+
 
 	}
 	
@@ -203,6 +213,12 @@ public class TestsCalculs {
 		
 		
 		cantineTest.ajouterCommandes();
+		
+		// terre = 2 pour Jean
+		assertEquals(2, cantineTest.listeClient.get(0).listeProduit.get(1).getQte());
+		
+		// poutine = 6 pour joe
+		assertEquals(6, cantineTest.listeClient.get(2).listeProduit.get(0).getQte());
 
 
 	}
