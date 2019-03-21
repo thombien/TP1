@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Iterator;
+
 
 import outilsjava.OutilsConstantes;
 
@@ -18,7 +18,8 @@ public class Cantine implements OutilsConstantes {
 	public String sortie = "";
 
 	public ArrayList<Client> listeClient;
-
+	public final String CMD = "user.dir";
+	
 	public Cantine() {
 		listeClient = new ArrayList<>();
 	}
@@ -243,9 +244,8 @@ public class Cantine implements OutilsConstantes {
 			}
 		}
 		
-		String startDir = System.getProperty("user.dir");
-		File f = new File(startDir + "/Facture-du-" + java.time.LocalDate.now() + "-" 
-						+ java.time.LocalTime.now().getHour() + "-" + java.time.LocalTime.now().getMinute() + ".txt");
+		String startDir = System.getProperty(CMD);
+		File f = new File(startDir + "/Facture-du-" + time() + ".txt");
 		
 		try (PrintWriter pw = new PrintWriter(new FileWriter(f))) {
 
@@ -255,6 +255,11 @@ public class Cantine implements OutilsConstantes {
 		}
 		System.out.println(sortie);
 
+	}
+	public String time() {
+		return java.time.LocalDate.now() + "-" 
+				+ java.time.LocalTime.now().getHour() + "-" + java.time.LocalTime.now().getMinute();
+		
 	}
 
 	public double[] calculTaxes(double tvq, double tps, double montant) {
