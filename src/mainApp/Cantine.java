@@ -32,7 +32,7 @@ public class Cantine implements OutilsConstantes {
 
 		listeClient = new ArrayList<>();
 
-		System.out.println("\nBienvenue chez Barette !");
+		System.out.println("\nBienvenue chez Barette !\n");
 
 		ligne = outilsjava.OutilsLecture.lireChaine("");
 
@@ -119,9 +119,11 @@ public class Cantine implements OutilsConstantes {
 					}
 				}
 				
+				} else {
+					sortie += "Erreur : " + ligneProduit[0] + " ou " + ligneProduit[1] + " non existant";
 				}	
 		
-			}
+			} 
 
 			ligne = outilsjava.OutilsLecture.lireChaine("");
 		}
